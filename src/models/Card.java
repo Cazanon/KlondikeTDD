@@ -5,6 +5,11 @@ public class Card {
 	private Color color;
 	private int value;
 
+	public Card(int value, Color color){
+		this.value = value;
+		this.color = color;
+	}
+	
 	public boolean uncovered() {
 		return true;
 	}

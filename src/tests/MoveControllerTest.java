@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 import models.Card;
+import models.Color;
 import models.DeckStack;
 import models.FoundationStack;
 import models.WasteStack;
@@ -22,7 +23,7 @@ public class MoveControllerTest {
 
 	@Test
 	public void moveDeckToWasteTest() {
-		Card card = new Card();
+		Card card = new Card(1,Color.CLUB);
 		DeckStack deckStack = new DeckStack();
 		deckStack.push(card);
 		WasteStack wasteStack = new WasteStack();
@@ -41,7 +42,7 @@ public class MoveControllerTest {
 	
 	@Test
 	public void moveWasteToFoundationTest() {
-		Card card = new Card();
+		Card card = new Card(1,Color.CLUB);
 		WasteStack wasteStack = new WasteStack();
 		wasteStack.push(card);
 		
