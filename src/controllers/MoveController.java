@@ -5,9 +5,8 @@ import models.WasteStack;
 
 public class MoveController {
 
-	public void move(DeckStack deckStack, WasteStack wasteStack) {
-		// TODO Auto-generated method stub
-		
+	public void move(DeckStack from, WasteStack to) {
+		to.push(from.pop());		
 	}
 
 }
