@@ -51,9 +51,31 @@ public class StartGameControllerTest {
 		for (int i = 0; i < sizeTableaus.size(); i++) {
 			assertEquals(new Integer(i), sizeTableaus.get(i));
 		}
+		
 		for (Stack<Card> uncoveredCardsStack : uncoveredCardsStackTableaus) {
 			assertEquals(1, uncoveredCardsStack.size());
 			assertTrue(uncoveredCardsStack.peek().uncovered()); //cima
 		}
+	}
+	
+	@Test
+	public void totalCardsTest(){
+		int cardsNumber=0;
+		
+		cardsNumber += startGameController.sizeDeck();
+		cardsNumber += startGameController.sizeWaste();
+		
+		ArrayList<Integer> sizeTableaus = startGameController.sizeCoveredCardsTableaus();
+		ArrayList<Stack<Card>> uncoveredCardsStackTableaus = startGameController.uncoveredCardsStackTableaus();
+		
+		for (int i = 0; i < sizeTableaus.size(); i++) {
+			cardsNumber += sizeTableaus.get(i);
+		}
+		
+		for (Stack<Card> uncoveredCardsStack : uncoveredCardsStackTableaus) {
+			cardsNumber += uncoveredCardsStack.size();
+		}
+		
+		assertEquals(52, cardsNumber);
 	}
 }
