@@ -1,10 +1,9 @@
 package tests;
 
-import static org.junit.Assert.assertFalse;
-
-import java.util.Stack;
-
+import static org.junit.Assert.assertEquals;
 import models.Card;
+import models.DeckStack;
+import models.WasteStack;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +22,7 @@ public class MoveDeckToWasteControllerTest {
 	@Test
 	public void moveDeckToWasteTest() {
 		Card card = new Card();
-		/*DeckStack deckStack = new DeckStack();
+		DeckStack deckStack = new DeckStack();
 		deckStack.push(card);
 		WasteStack wasteStack = new WasteStack();
 			
@@ -34,7 +33,7 @@ public class MoveDeckToWasteControllerTest {
 		
 		assertEquals(numberCardsDeckStack-1,deckStack.size());
 		assertEquals(numberCardsWasteStack+1,wasteStack.size());
-		assertEquals(card,wasteStack.peek());*/
+		assertEquals(card,wasteStack.peek());
 	}
 	
 	
