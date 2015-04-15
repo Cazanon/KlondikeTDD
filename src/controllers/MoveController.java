@@ -1,16 +1,12 @@
 package controllers;
 
-import models.DeckStack;
-import models.FoundationStack;
-import models.WasteStack;
+import java.util.Stack;
+
+import models.Card;
 
 public class MoveController {
 
-	public void move(DeckStack from, WasteStack to) {
-		to.push(from.pop());		
-	}
-
-	public void move(WasteStack from, FoundationStack to) {
+	public void move(Stack<Card> from, Stack<Card> to) {
 		to.push(from.pop());		
 	}
 
