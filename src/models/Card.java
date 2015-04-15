@@ -3,6 +3,7 @@ package models;
 public class Card {
 
 	private Color color;
+	private int value;
 
 	public boolean uncovered() {
 		return true;
@@ -13,7 +14,7 @@ public class Card {
 	}
 
 	public boolean isNext(Card topCard) {
-		return true;
+		return this.value + 1 == topCard.getValue();		
 	}
 
 	public Color getColor() {
@@ -22,6 +23,14 @@ public class Card {
 
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 }
