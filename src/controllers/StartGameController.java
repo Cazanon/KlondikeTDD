@@ -10,4 +10,8 @@ public class StartGameController {
 		return 24;
 	}
 
+	public int sizeFoundations() {
+		return 0;
+	}
+
 }
