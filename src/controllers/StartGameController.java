@@ -6,4 +6,8 @@ public class StartGameController {
 		return 0;
 	}
 
+	public int sizeDeck() {
+		return 24;
+	}
+
 }

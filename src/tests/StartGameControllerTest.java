@@ -21,4 +21,9 @@ public class StartGameControllerTest {
 		assertEquals(0, startGameController.sizeWaste());
 	}
 	
+	@Test
+	public void sizeDeckTest() {
+		assertEquals(24, startGameController.sizeDeck());
+	}
+	
 }
