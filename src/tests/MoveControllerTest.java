@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import controllers.MoveController;
 
-public class MoveDeckToWasteControllerTest {
+public class MoveControllerTest {
 	
 	private MoveController moveController;
 	
