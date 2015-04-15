@@ -35,8 +35,8 @@ public class StartGameControllerTest {
 	public void sizeFoundationsTest() {
 		ArrayList<Integer> sizeFoundations = startGameController.sizeFoundations();
 		assertEquals(4, sizeFoundations.size());
-		for (int sizeFoundation : sizeFoundations) {
-			assertEquals(0, sizeFoundation);
+		for (int cardsFoundation : sizeFoundations) {
+			assertEquals(0, cardsFoundation);
 		}
 	}
 	
