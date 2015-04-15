@@ -33,7 +33,11 @@ public class StartGameControllerTest {
 	
 	@Test
 	public void sizeFoundationsTest() {
-		assertEquals(0, startGameController.sizeFoundations());		
+		ArrayList<Integer> sizeFoundations = startGameController.sizeFoundations();
+		assertEquals(4, sizeFoundations.size());
+		for (int sizeFoundation : sizeFoundations) {
+			assertEquals(0, sizeFoundation);
+		}
 	}
 	
 	@Test
