@@ -1,8 +1,9 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import models.Card;
 import models.DeckStack;
+import models.FoundationStack;
 import models.WasteStack;
 
 import org.junit.Before;
@@ -29,6 +30,8 @@ public class MoveControllerTest {
 		int numberCardsDeckStack = deckStack.size();
 		int numberCardsWasteStack = wasteStack.size();		
 		
+		assertFalse(deckStack.isEmpty());
+		
 		moveController.move(deckStack,wasteStack);
 		
 		assertEquals(numberCardsDeckStack-1,deckStack.size());
@@ -36,5 +39,25 @@ public class MoveControllerTest {
 		assertEquals(card,wasteStack.peek());
 	}
 	
+	@Test
+	public void moveWasteToFoundationTest() {
+		Card card = new Card();
+		WasteStack wasteStack = new WasteStack();
+		wasteStack.push(card);
+		
+		FoundationStack foundationStack = new FoundationStack();
+		
+		assertTrue(foundationStack.canPush(card));
+		assertFalse(wasteStack.isEmpty());
+				
+		int numberCardsWasteStack = wasteStack.size();
+		int numberCardsFoundationStack = foundationStack.size();
+		
+		moveController.move(wasteStack,foundationStack);
+		
+		assertEquals(numberCardsWasteStack-1,wasteStack.size());
+		assertEquals(numberCardsFoundationStack+1,foundationStack.size());
+		assertEquals(card,foundationStack.peek());
+	}
 	
 }
