@@ -10,7 +10,7 @@ public class Card {
 		this.color = color;
 	}
 	
-	public boolean uncovered() {
+	public boolean isUncovered() {
 		return true;
 	}
 

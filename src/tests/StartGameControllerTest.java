@@ -54,7 +54,7 @@ public class StartGameControllerTest {
 		
 		for (Stack<Card> uncoveredCardsStack : uncoveredCardsStackTableaus) {
 			assertEquals(1, uncoveredCardsStack.size());
-			assertTrue(uncoveredCardsStack.peek().uncovered()); //cima
+			assertTrue(uncoveredCardsStack.peek().isUncovered()); //cima
 		}
 	}
 	
