@@ -6,14 +6,16 @@ public class Card {
 	public static final int MIN_VALUE = 1;
 	private CardSuite cardSuite;
 	private int value;
+	boolean covered;
 
 	public Card(int value, CardSuite cardSuite){
 		this.value = value;
 		this.cardSuite = cardSuite;
+		covered = true;
 	}
 	
 	public boolean isUncovered() {
-		return true;
+		return covered;
 	}
 
 	public boolean isSameColor(Card topCard) {
@@ -24,6 +26,10 @@ public class Card {
 		return this.value + 1 == topCard.getValue();		
 	}
 
+	public void setCovered(boolean covered){
+		this.covered = covered;
+	}
+	
 	public CardSuite getCardSuite() {
 		return cardSuite;
 	}

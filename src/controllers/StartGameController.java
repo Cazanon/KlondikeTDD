@@ -63,6 +63,7 @@ public class StartGameController {
 					allCards.remove(randomOrder);
 				}
 			}
+			tableaus.get(i).peek().setCovered(false);
 		}
 	}
 
