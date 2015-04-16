@@ -2,10 +2,10 @@ package models;
 
 public class Card {
 
-	private Color color;
+	private CardSuite color;
 	private int value;
 
-	public Card(int value, Color color){
+	public Card(int value, CardSuite color){
 		this.value = value;
 		this.color = color;
 	}
@@ -22,11 +22,11 @@ public class Card {
 		return this.value + 1 == topCard.getValue();		
 	}
 
-	public Color getColor() {
+	public CardSuite getColor() {
 		return color;
 	}
 
-	public void setColor(Color color) {
+	public void setColor(CardSuite color) {
 		this.color = color;
 	}
 

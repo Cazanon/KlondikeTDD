@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import models.Card;
-import models.Color;
+import models.CardSuite;
 import models.DeckStack;
 import models.FoundationStack;
 import models.TableauStack;
@@ -26,7 +26,7 @@ public class MoveControllerTest {
 
 	@Test
 	public void moveDeckToWasteTest() {
-		Card card = new Card(1,Color.CLUB);
+		Card card = new Card(1,CardSuite.CLUB);
 		DeckStack deckStack = new DeckStack();
 		deckStack.push(card);
 		WasteStack wasteStack = new WasteStack();
@@ -45,7 +45,7 @@ public class MoveControllerTest {
 	
 	@Test
 	public void moveWasteToFoundationTest() {
-		Card card = new Card(1,Color.CLUB);
+		Card card = new Card(1,CardSuite.CLUB);
 		WasteStack wasteStack = new WasteStack();
 		wasteStack.push(card);
 		
@@ -66,7 +66,7 @@ public class MoveControllerTest {
 	
 	@Test
 	public void moveWasteToTableausTest() {
-		Card card = new Card(1,Color.CLUB);
+		Card card = new Card(1,CardSuite.CLUB);
 		WasteStack wasteStack = new WasteStack();
 		wasteStack.push(card);
 		

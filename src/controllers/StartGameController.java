@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import models.Card;
-import models.Color;
+import models.CardSuite;
 
 
 public class StartGameController {
@@ -36,7 +36,7 @@ public class StartGameController {
 	public ArrayList<Stack<Card>> uncoveredCardsStackTableaus() {
 		ArrayList<Stack<Card>> uncoveredCardsStackTableaus = new ArrayList<Stack<Card>>();
 		for(int i=0;i<7;i++){
-			Card card = new Card(1,Color.CLUB);
+			Card card = new Card(1,CardSuite.CLUB);
 			Stack<Card> stackCard = new Stack<Card>();
 			stackCard.add(card);
 			uncoveredCardsStackTableaus.add(stackCard);

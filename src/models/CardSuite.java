@@ -1,6 +1,6 @@
 package models;
 
-public enum Color {
+public enum CardSuite {
 	SPADE,
 	CLUB,
 	HEART,
