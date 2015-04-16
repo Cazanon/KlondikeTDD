@@ -1,10 +1,13 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import models.Card;
 import models.Color;
 import models.DeckStack;
 import models.FoundationStack;
+import models.TableauStack;
 import models.WasteStack;
 
 import org.junit.Before;
@@ -59,6 +62,27 @@ public class MoveControllerTest {
 		assertEquals(numberCardsWasteStack-1,wasteStack.size());
 		assertEquals(numberCardsFoundationStack+1,foundationStack.size());
 		assertEquals(card,foundationStack.peek());
+	}
+	
+	@Test
+	public void moveWasteToTableausTest() {
+		Card card = new Card(1,Color.CLUB);
+		WasteStack wasteStack = new WasteStack();
+		wasteStack.push(card);
+		
+		TableauStack tableauStack = new TableauStack();
+		
+		assertTrue(tableauStack.canPush(card));
+		assertFalse(wasteStack.isEmpty());
+				
+		int numberCardsWasteStack = wasteStack.size();
+		int numberCardsTableauStackStack = tableauStack.size();
+		
+		moveController.move(wasteStack,tableauStack);
+		
+		assertEquals(numberCardsWasteStack-1,wasteStack.size());
+		assertEquals(numberCardsTableauStackStack+1,tableauStack.size());
+		assertEquals(card,tableauStack.peek());
 	}
 	
 }
