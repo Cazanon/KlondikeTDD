@@ -15,7 +15,7 @@ public class Card {
 	}
 
 	public boolean isSameColor(Card topCard) {
-		return this.cardSuite == topCard.getCardSuite();		
+		return Color.isSameColor(this, topCard);				
 	}
 
 	public boolean isNext(Card topCard) {
