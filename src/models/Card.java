@@ -38,4 +38,8 @@ public class Card {
 		this.value = value;
 	}
 
+	public boolean isFirst() {
+		return value == 1;
+	}
+
 }
