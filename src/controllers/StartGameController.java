@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Stack;
 
 import models.Card;
@@ -23,8 +24,21 @@ public class StartGameController {
 		generateDeck(deckStack,tableaus);
 	}
 	
-	private void generateDeck(DeckStack deckStack2, List<TableauStack> tableaus2) {
-		
+	private void generateDeck(DeckStack deckStack, List<TableauStack> tableaus) {
+		Stack<Card> allCards = new Stack<Card>();
+		for(CardSuite cardSuite : CardSuite.values()){
+			for(int i=Card.MIN_VALUE;i<=Card.MAX_VALUE;i++){
+				allCards.push(new Card(i,cardSuite));
+			}
+		}
+		Random random = new Random();
+		//while(!allCards.empty()){			
+			while(deckStack.size()!=DeckStack.MAX_CARDS){
+				int randomOrder = random.nextInt((Card.MAX_VALUE - Card.MIN_VALUE) + 1) + Card.MIN_VALUE;
+				deckStack.push(allCards.get(randomOrder));
+				allCards.remove(randomOrder);
+			}
+		//}
 	}
 
 	public int sizeWaste() {
