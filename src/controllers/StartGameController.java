@@ -84,8 +84,8 @@ public class StartGameController {
 
 	public ArrayList<Integer> sizeCoveredCardsTableaus() {
 		ArrayList<Integer> sizeCoveredCardsTableaus = new ArrayList<Integer>();
-		for(int i=0;i<7;i++){
-			sizeCoveredCardsTableaus.add(i);
+		for(TableauStack tableau : tableaus){
+			sizeCoveredCardsTableaus.add(tableau.getCoveredCards());
 		}
 		return sizeCoveredCardsTableaus;
 	}

@@ -13,4 +13,12 @@ public class TableauStack extends Stack<Card>{
 		return true;
 	}
 
+	public Integer getCoveredCards() {
+		int coveredCards = 0;
+		for(Card card : this){
+			if(!card.isUncovered()) coveredCards++;
+		}
+		return coveredCards;
+	}
+
 }
