@@ -2,12 +2,12 @@ package models;
 
 public class Card {
 
-	private CardSuite color;
+	private CardSuite cardSuite;
 	private int value;
 
-	public Card(int value, CardSuite color){
+	public Card(int value, CardSuite cardSuite){
 		this.value = value;
-		this.color = color;
+		this.cardSuite = cardSuite;
 	}
 	
 	public boolean isUncovered() {
@@ -15,19 +15,19 @@ public class Card {
 	}
 
 	public boolean isSameColor(Card topCard) {
-		return this.color == topCard.getColor();		
+		return this.cardSuite == topCard.getCardSuite();		
 	}
 
 	public boolean isNext(Card topCard) {
 		return this.value + 1 == topCard.getValue();		
 	}
 
-	public CardSuite getColor() {
-		return color;
+	public CardSuite getCardSuite() {
+		return cardSuite;
 	}
 
-	public void setColor(CardSuite color) {
-		this.color = color;
+	public void setCardSuite(CardSuite cardSuite) {
+		this.cardSuite = cardSuite;
 	}
 
 	public int getValue() {
