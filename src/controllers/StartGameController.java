@@ -21,24 +21,40 @@ public class StartGameController {
 	public StartGameController(){
 		deckStack = new DeckStack();
 		wasteStack = new WasteStack();
-		generateDeck(deckStack,tableaus);
+		tableaus = new ArrayList<TableauStack>();
+		for(int i=0;i<7;i++){
+			tableaus.add(new TableauStack());
+		}
+		generateCards(deckStack,tableaus);
 	}
 	
-	private void generateDeck(DeckStack deckStack, List<TableauStack> tableaus) {
+	private void generateCards(DeckStack deckStack, List<TableauStack> tableaus) {
 		Stack<Card> allCards = new Stack<Card>();
+		
 		for(CardSuite cardSuite : CardSuite.values()){
 			for(int i=Card.MIN_VALUE;i<=Card.MAX_VALUE;i++){
 				allCards.push(new Card(i,cardSuite));
 			}
 		}
-		Random random = new Random();
-		//while(!allCards.empty()){			
-			while(deckStack.size()!=DeckStack.MAX_CARDS){
-				int randomOrder = random.nextInt((Card.MAX_VALUE - Card.MIN_VALUE) + 1) + Card.MIN_VALUE;
+		
+		Random random = new Random();	
+		while(deckStack.size()!=DeckStack.MAX_CARDS){
+			int randomOrder = random.nextInt(allCards.size());
+			if(allCards.get(randomOrder)!=null){
 				deckStack.push(allCards.get(randomOrder));
 				allCards.remove(randomOrder);
+			}				
+		}
+		
+		for(int i=0;i<7;i++){
+			while(tableaus.get(i).size()!=i+1){
+				int randomOrder = random.nextInt(allCards.size());
+				if(allCards.get(randomOrder)!=null){
+					tableaus.get(i).push(allCards.get(randomOrder));
+					allCards.remove(randomOrder);
+				}
 			}
-		//}
+		}
 	}
 
 	public int sizeWaste() {
