@@ -1,11 +1,14 @@
 package tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import models.Card;
+import models.TableauStack;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -42,14 +45,26 @@ public class StartGameControllerTest {
 	
 	@Test
 	public void sizeTableausTest() {
-		ArrayList<Integer> sizeTableaus = startGameController.sizeCoveredCardsTableaus();
+		List<TableauStack> tableaus = startGameController.getTableaus();
+		
+		assertEquals(7, tableaus.size());
+		
+		for (int i = 0; i < tableaus.size(); i++) {
+			assertEquals(new Integer(i), tableaus.get(i).getCoveredCards());
+		}
+		
+		ArrayList<Integer> coveredCardsStackTableaus = startGameController.sizeCoveredCardsStackTableaus();
 		ArrayList<Stack<Card>> uncoveredCardsStackTableaus = startGameController.uncoveredCardsStackTableaus();
 		
-		assertEquals(7, sizeTableaus.size());
+		assertEquals(7, coveredCardsStackTableaus.size());
 		assertEquals(7, uncoveredCardsStackTableaus.size());
 		
-		for (int i = 0; i < sizeTableaus.size(); i++) {
-			assertEquals(new Integer(i), sizeTableaus.get(i));
+		for(Integer coveredCards : coveredCardsStackTableaus){
+			assertEquals(new Integer(1),coveredCards);
+		}
+		
+		for (int i = 0; i < coveredCardsStackTableaus.size(); i++) {
+			assertEquals(new Integer(i), coveredCardsStackTableaus.get(i));
 		}
 		
 		for (Stack<Card> uncoveredCardsStack : uncoveredCardsStackTableaus) {
@@ -65,17 +80,17 @@ public class StartGameControllerTest {
 		cardsNumber += startGameController.sizeDeck();
 		cardsNumber += startGameController.sizeWaste();
 		
-		ArrayList<Integer> sizeTableaus = startGameController.sizeCoveredCardsTableaus();
-		ArrayList<Stack<Card>> uncoveredCardsStackTableaus = startGameController.uncoveredCardsStackTableaus();
+		//ArrayList<Integer> sizeTableaus = startGameController.sizeCoveredCardsTableaus();
+		/*ArrayList<Stack<Card>> uncoveredCardsStackTableaus = startGameController.uncoveredCardsStackTableaus();
 		
 		for (int i = 0; i < sizeTableaus.size(); i++) {
 			cardsNumber += sizeTableaus.get(i);
-		}
-		
+		}*/
+		/*
 		for (Stack<Card> uncoveredCardsStack : uncoveredCardsStackTableaus) {
 			cardsNumber += uncoveredCardsStack.size();
 		}
-		
+		*/
 		assertEquals(52, cardsNumber);
 	}
 }
