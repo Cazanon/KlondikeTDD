@@ -1,20 +1,38 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import models.Card;
 import models.CardSuite;
+import models.DeckStack;
+import models.TableauStack;
+import models.WasteStack;
 
 
 public class StartGameController {
 
+	private DeckStack deckStack;
+	private WasteStack wasteStack;
+	private List<TableauStack> tableaus;
+	
+	public StartGameController(){
+		deckStack = new DeckStack();
+		wasteStack = new WasteStack();
+		generateDeck(deckStack,tableaus);
+	}
+	
+	private void generateDeck(DeckStack deckStack2, List<TableauStack> tableaus2) {
+		
+	}
+
 	public int sizeWaste() {
-		return 0;
+		return wasteStack.size();
 	}
 
 	public int sizeDeck() {
-		return 24;
+		return deckStack.size();
 	}
 
 	public ArrayList<Integer> sizeFoundations() {
