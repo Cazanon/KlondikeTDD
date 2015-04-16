@@ -8,6 +8,7 @@ import java.util.Stack;
 import models.Card;
 import models.CardSuite;
 import models.DeckStack;
+import models.FoundationStack;
 import models.TableauStack;
 import models.WasteStack;
 
@@ -17,15 +18,23 @@ public class StartGameController {
 	private DeckStack deckStack;
 	private WasteStack wasteStack;
 	private List<TableauStack> tableaus;
+	private List<FoundationStack> foundations;
 	
 	public StartGameController(){
 		deckStack = new DeckStack();
+		
 		wasteStack = new WasteStack();
+		
 		tableaus = new ArrayList<TableauStack>();
 		for(int i=0;i<7;i++){
 			tableaus.add(new TableauStack());
 		}
 		generateCards(deckStack,tableaus);
+		
+		foundations = new ArrayList<FoundationStack>();
+		for(int i=0;i<4;i++){
+			foundations.add(new FoundationStack());
+		}
 	}
 	
 	private void generateCards(DeckStack deckStack, List<TableauStack> tableaus) {
@@ -67,8 +76,8 @@ public class StartGameController {
 
 	public ArrayList<Integer> sizeFoundations() {
 		ArrayList<Integer> sizeFoundations = new ArrayList<Integer>();
-		for(int i=0;i<4;i++){
-			sizeFoundations.add(0);
+		for(FoundationStack foundation : foundations){
+			sizeFoundations.add(foundation.size());
 		}
 		return sizeFoundations;
 	}
