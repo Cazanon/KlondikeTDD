@@ -14,7 +14,7 @@ public class Card {
 		covered = true;
 	}
 	
-	public boolean isUncovered() {
+	public boolean isCovered() {
 		return covered;
 	}
 

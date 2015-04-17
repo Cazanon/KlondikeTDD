@@ -93,11 +93,8 @@ public class StartGameController {
 
 	public ArrayList<Stack<Card>> uncoveredCardsStackTableaus() {
 		ArrayList<Stack<Card>> uncoveredCardsStackTableaus = new ArrayList<Stack<Card>>();
-		for(int i=0;i<7;i++){
-			Card card = new Card(1,CardSuite.CLUB);
-			Stack<Card> stackCard = new Stack<Card>();
-			stackCard.add(card);
-			uncoveredCardsStackTableaus.add(stackCard);
+		for(TableauStack tableau : tableaus){
+			uncoveredCardsStackTableaus.add(tableau.getUncoveredCards());
 		}
 		return uncoveredCardsStackTableaus;
 	}

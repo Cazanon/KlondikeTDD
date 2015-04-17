@@ -9,16 +9,24 @@ public class TableauStack extends Stack<Card>{
 	public boolean canPush(Card card) {
 		if(this.isEmpty() && card.isFirst()) return true;
 		Card topCard = this.peek();
-		if(!topCard.isUncovered() || card.isSameColor(topCard) || !topCard.isNext(card)) return false;		
+		if(!topCard.isCovered() || card.isSameColor(topCard) || !topCard.isNext(card)) return false;		
 		return true;
 	}
 
 	public Integer getCoveredCards() {
 		int coveredCards = 0;
 		for(Card card : this){
-			if(!card.isUncovered()) coveredCards++;
+			if(card.isCovered()) coveredCards++;
 		}
 		return coveredCards;
+	}
+
+	public Stack<Card> getUncoveredCards() {
+		Stack<Card> uncoveredCards = new Stack<Card>();
+		for(Card card : this){
+			if(!card.isCovered()) uncoveredCards.add(card);
+		}
+		return uncoveredCards;
 	}
 
 }
