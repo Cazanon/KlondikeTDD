@@ -102,5 +102,22 @@ public class StartGameController {
 	public List<TableauStack> getTableaus() {
 		return tableaus;
 	}
+	
+	public Stack<Card> getCards(){		
+		Stack<Card> totalCards = new Stack<Card>();
+		
+		totalCards.addAll(deckStack);
+		totalCards.addAll(wasteStack);
+		
+		for(Stack<Card> stackCard : tableaus){
+			totalCards.addAll(stackCard);
+		}
+		
+		for(Stack<Card> stackCard : foundations){
+			totalCards.addAll(stackCard);
+		}
+		
+		return totalCards;		
+	}
 
 }

@@ -90,5 +90,7 @@ public class StartGameControllerTest {
 		}
 		
 		assertEquals(52, cardsNumber);
+		
+		assertEquals(52, startGameController.getCards().size());
 	}
 }
