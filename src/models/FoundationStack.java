@@ -1,8 +1,7 @@
 package models;
 
-import java.util.Stack;
 
-public class FoundationStack extends Stack<Card>{
+public class FoundationStack extends CardStack{
 
 	private static final long serialVersionUID = 1L;
 
