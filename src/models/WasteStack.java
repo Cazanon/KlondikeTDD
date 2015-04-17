@@ -7,7 +7,7 @@ public class WasteStack extends CardStack{
 
 	@Override
 	public boolean canPush(Card card) {
-		// TODO Auto-generated method stub
+		if(!card.isCovered()) return true;
 		return false;
 	}
 
