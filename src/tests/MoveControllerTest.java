@@ -108,10 +108,12 @@ public class MoveControllerTest {
 		int numberCardsTableauStackRed = tableauStackRed.size();
 		int numberCardsTableauStackBlack = tableauStackBlack.size();
 
+		assertFalse(tableauStackBlack.canPush(card));
 		assertFalse(moveController.move(wasteStack,tableauStackBlack));
 		assertEquals(numberCardsWasteStack,wasteStack.size());
 		assertEquals(numberCardsTableauStackBlack,tableauStackBlack.size());
 		
+		assertFalse(tableauStackRed.canPush(card));
 		assertTrue(moveController.move(wasteStack,tableauStackRed));
 		assertEquals(numberCardsWasteStack-1,wasteStack.size());
 		assertEquals(numberCardsTableauStackRed+1,tableauStackRed.size());		

@@ -9,7 +9,7 @@ public class TableauStack extends CardStack{
 	public boolean canPush(Card card) {
 		if(this.isEmpty() && card.isFirst()) return true;
 		Card topCard = this.peek();
-		if(!topCard.isCovered() || card.isSameColor(topCard) || !topCard.isNext(card)) return false;		
+		if(!topCard.isCovered() || card.isSameColor(topCard) || !card.isNext(topCard)) return false;		
 		return true;
 	}
 
