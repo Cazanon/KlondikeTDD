@@ -85,4 +85,36 @@ public class MoveControllerTest {
 		assertEquals(card,tableauStack.peek());
 	}
 	
+	@Test
+	public void moveWasteToDefinedTableauTest() {
+		Card card = new Card(2,CardSuite.CLUB);
+		WasteStack wasteStack = new WasteStack();
+		wasteStack.push(card);
+		
+		TableauStack tableauStackRed = new TableauStack();
+		TableauStack tableauStackBlack = new TableauStack();
+		Card cardRed = new Card(1,CardSuite.DIAMOND);
+		Card cardBlack = new Card(1,CardSuite.CLUB);
+		
+		assertTrue(tableauStackRed.canPush(cardRed));
+		tableauStackRed.add(cardRed);
+		
+		assertTrue(tableauStackBlack.canPush(cardBlack));
+		tableauStackBlack.add(cardBlack);
+		
+		assertFalse(wasteStack.isEmpty());
+		
+		int numberCardsWasteStack = wasteStack.size();
+		int numberCardsTableauStackRed = tableauStackRed.size();
+		int numberCardsTableauStackBlack = tableauStackBlack.size();
+
+		assertFalse(moveController.move(wasteStack,tableauStackBlack));
+		assertEquals(numberCardsWasteStack,wasteStack.size());
+		assertEquals(numberCardsTableauStackBlack,tableauStackBlack.size());
+		
+		assertTrue(moveController.move(wasteStack,tableauStackRed));
+		assertEquals(numberCardsWasteStack-1,wasteStack.size());
+		assertEquals(numberCardsTableauStackRed+1,tableauStackRed.size());		
+		assertEquals(card,tableauStackRed.peek());
+	}
 }
