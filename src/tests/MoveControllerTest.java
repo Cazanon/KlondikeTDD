@@ -129,13 +129,13 @@ public class MoveControllerTest {
 		Card cardDiamond = new Card(1,CardSuite.DIAMOND);
 		Card cardClub = new Card(1,CardSuite.CLUB);
 		
-		assertTrue(foundationDiamond.canPush(cardDiamond));
-		assertFalse(foundationDiamond.canPush(cardClub));
+		assertTrue(foundationDiamond.canPush(cardDiamond));		
 		foundationDiamond.add(cardDiamond);
+		assertFalse(foundationDiamond.canPush(cardClub));
 		
-		assertTrue(foundationClub.canPush(cardClub));
-		assertFalse(foundationClub.canPush(cardDiamond));
+		assertTrue(foundationClub.canPush(cardClub));		
 		foundationClub.add(cardClub);
+		assertFalse(foundationClub.canPush(cardDiamond));
 		
 		assertFalse(wasteStack.isEmpty());
 		
@@ -150,8 +150,7 @@ public class MoveControllerTest {
 		assertTrue(moveController.move(wasteStack,foundationClub));
 		assertEquals(numberCardsWasteStack-1,wasteStack.size());
 		assertEquals(numberCardsFoundationClub+1,foundationClub.size());
-		assertEquals(cardDiamondTop,foundationDiamond.peek());
-		
-		
+		assertEquals(cardDiamondTop,foundationClub.peek());		
 	}
+	
 }

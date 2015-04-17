@@ -23,7 +23,7 @@ public class Card {
 	}
 
 	public boolean isNext(Card topCard) {
-		return this.value + 1 == topCard.getValue();		
+		return this.value == topCard.getValue()+1;		
 	}
 
 	public void setCovered(boolean covered){
