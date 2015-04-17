@@ -117,4 +117,41 @@ public class MoveControllerTest {
 		assertEquals(numberCardsTableauStackRed+1,tableauStackRed.size());		
 		assertEquals(card,tableauStackRed.peek());
 	}
+	
+	@Test
+	public void moveWasteToDefinedFoundationTest() {
+		Card cardDiamondTop = new Card(2,CardSuite.CLUB);
+		WasteStack wasteStack = new WasteStack();
+		wasteStack.push(cardDiamondTop);
+		
+		FoundationStack foundationDiamond = new FoundationStack();
+		FoundationStack foundationClub = new FoundationStack();
+		Card cardDiamond = new Card(1,CardSuite.DIAMOND);
+		Card cardClub = new Card(1,CardSuite.CLUB);
+		
+		assertTrue(foundationDiamond.canPush(cardDiamond));
+		assertFalse(foundationDiamond.canPush(cardClub));
+		foundationDiamond.add(cardDiamond);
+		
+		assertTrue(foundationClub.canPush(cardClub));
+		assertFalse(foundationClub.canPush(cardDiamond));
+		foundationClub.add(cardClub);
+		
+		assertFalse(wasteStack.isEmpty());
+		
+		int numberCardsWasteStack = wasteStack.size();
+		int numberCardsFoundationDiamond = foundationDiamond.size();
+		int numberCardsFoundationClub = foundationClub.size();
+
+		assertFalse(moveController.move(wasteStack,foundationDiamond));
+		assertEquals(numberCardsWasteStack,wasteStack.size());
+		assertEquals(numberCardsFoundationDiamond,foundationDiamond.size());		
+		
+		assertTrue(moveController.move(wasteStack,foundationClub));
+		assertEquals(numberCardsWasteStack-1,wasteStack.size());
+		assertEquals(numberCardsFoundationClub+1,foundationClub.size());
+		assertEquals(cardDiamondTop,foundationDiamond.peek());
+		
+		
+	}
 }
